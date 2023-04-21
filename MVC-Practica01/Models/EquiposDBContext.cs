@@ -10,5 +10,7 @@ namespace MVC_Practica01.Models
         }
 
         public DbSet<Marcas> marcas { get; set; }
+
+        public DbSet<equipos> equipos { get; set; }
     }
 }

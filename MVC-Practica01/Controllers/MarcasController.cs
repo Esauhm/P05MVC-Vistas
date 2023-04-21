@@ -35,7 +35,7 @@ namespace MVC_Practica01.Controllers
             }
 
             var marcas = await _context.marcas
-                .FirstOrDefaultAsync(m => m.Id_marcas == id);
+                .FirstOrDefaultAsync(m => m.id_marcas == id);
             if (marcas == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace MVC_Practica01.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id_marcas,nombre_marcas,estado")] Marcas marcas)
+        public async Task<IActionResult> Create([Bind("id_marcas,nombre_marca,estados")] Marcas marcas)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace MVC_Practica01.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id_marcas,nombre_marcas,estado")] Marcas marcas)
+        public async Task<IActionResult> Edit(int id, [Bind("id_marcas,nombre_marca,estados")] Marcas marcas)
         {
-            if (id != marcas.Id_marcas)
+            if (id != marcas.id_marcas)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace MVC_Practica01.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MarcasExists(marcas.Id_marcas))
+                    if (!MarcasExists(marcas.id_marcas))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace MVC_Practica01.Controllers
             }
 
             var marcas = await _context.marcas
-                .FirstOrDefaultAsync(m => m.Id_marcas == id);
+                .FirstOrDefaultAsync(m => m.id_marcas == id);
             if (marcas == null)
             {
                 return NotFound();
@@ -156,7 +156,7 @@ namespace MVC_Practica01.Controllers
 
         private bool MarcasExists(int id)
         {
-          return (_context.marcas?.Any(e => e.Id_marcas == id)).GetValueOrDefault();
+          return (_context.marcas?.Any(e => e.id_marcas == id)).GetValueOrDefault();
         }
     }
 }

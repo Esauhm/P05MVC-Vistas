@@ -6,13 +6,11 @@ namespace MVC_Practica01.Models
     {
         [Key]
         [Display(Name = "ID")]
-        public int Id_marcas { get; set; }
-
+        public int id_marcas { get; set; }
         [Display(Name = "Nombre de la Marca")]
-        public string? nombre_marcas { get; set; }
-
+        public string? nombre_marca { get; set; }
         [Display(Name = "Estado")]
-        public string? estado { get; set; }
+        public string? estados { get; set; }
 
     }
 }
